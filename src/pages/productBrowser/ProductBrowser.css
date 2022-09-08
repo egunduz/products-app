@@ -1,0 +1,112 @@
+#ProductBrowser {
+    height: 100vh;
+    background: #FAFAFA;
+    font-family: "Open Sans", sans-serif;
+}
+
+#ProductBrowser .content-row {
+    display: flex;
+    padding-top: 20px;
+    gap: 16px;
+    justify-content: center;
+    margin: auto;
+}
+
+#ProductBrowser .content-col {
+    gap: 16px
+}
+
+#ProductBrowser #filter-col {
+    width: 296px;
+}
+
+#ProductBrowser .contentBag {
+    margin-bottom: 16px;
+}
+
+#ProductBrowser #basket-col{
+    width: 296px;
+}
+
+#ProductBrowser #prod-col {
+    width: auto;
+    max-width: 608px;
+    min-width: 308px;
+}
+
+#ProductBrowser .ant-radio-inner {
+    border-color: #1EA4CE;
+}
+
+#ProductBrowser .ant-radio-inner::after {
+    background-color: #1EA4CE;
+    color: #1EA4CE;
+}
+
+#ProductBrowser .title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.25px;
+    color: #6F6F6F;
+    margin-bottom: 5px;
+}
+
+#ProductBrowser .item-types {
+    width: 129px;
+    height: 30px;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    margin: 8px;
+}
+
+#ProductBrowser .chips {
+    display: flex;
+    align-items: center;
+    padding: 6px 16px;
+    gap: 10px;
+    width: 61px;
+    height: 30px;
+    background: #F2F0FD;
+    border-radius: 2px;
+    color: #1EA4CE;
+    cursor: pointer;
+}
+
+#ProductBrowser .chips-active {
+    background: #1EA4CE;
+    color: #F3F0FE;
+ }
+
+@media only screen and (max-width: 1024px) {
+    #ProductBrowser #filter-col {
+        width: 296px;
+    }
+
+    #ProductBrowser #basket-col{
+        width: 100%;
+        padding-right: 129px;
+        padding-left: 129px;
+    }
+
+    #ProductBrowser #prod-col {
+        max-width: 308px;
+        min-width: 308px;
+    }
+}
+
+@media only screen and (max-width: 608px) {
+    #ProductBrowser #filter-col {
+        display: flex;
+        justify-content: stretch;
+        overflow-x: scroll;
+        max-width: 320px;
+        padding: 20px;
+    }
+    
+    #ProductBrowser #prod-col {
+        max-width: 308px;
+        min-width: 308px;
+    }
+}

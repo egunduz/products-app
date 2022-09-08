@@ -1,0 +1,14 @@
+
+
+body {
+    background-color: #E5E5E5;
+}
+
+.coreLayout {
+    margin: auto;
+    max-width: 1440px;
+    height: 1482px;
+    overflow-y: auto;
+    background: #FAFAFA;
+    font-family: "Open Sans", sans-serif;
+}

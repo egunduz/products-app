@@ -1,0 +1,24 @@
+.Footer {
+  height: 76.64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1EA4CE;
+}
+
+.Footer .wrapper {
+  align-self: center;
+  text-align: center;
+}
+
+.Footer a, a:link, a:visited  {
+  color: #1EA4CE;
+  text-decoration: none;
+}
+
+.Footer .divider {
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+  margin: 10px;
+}

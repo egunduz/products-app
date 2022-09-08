@@ -1,0 +1,58 @@
+#ProductSlection .product-card {
+    width: 124px;
+}
+
+#ProductSlection .product-image {
+    height: 124px;
+    background: #FEFEFE;
+    border: 1.17666px solid #F3F0FE;
+    border-radius: 12px;
+}
+
+#ProductSlection .product-list {
+    display: flex;
+    flex-flow: wrap;
+    gap: 20px;
+    justify-content: stretch;
+}
+
+#ProductSlection .add-botton {
+    height: 22px;
+    background: #1EA4CE;
+    border-radius: 2px;
+    text-align: center;
+    color: #F3F0FE;
+    cursor: pointer;
+}
+
+#ProductSlection .product-image {
+    display: flex;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+#ProductSlection .image-area {
+    width: 92px;
+    height: 92px;
+    background: #C4C4C4;
+    margin: auto;
+    cursor: pointer;
+}
+
+#ProductSlection .product-price {
+    height: 23px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1EA4CE;
+}
+
+#ProductSlection .product-name {
+    height: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #191919;
+    overflow: hidden;
+    margin-bottom: 5px;
+}

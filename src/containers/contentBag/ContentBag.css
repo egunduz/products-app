@@ -1,0 +1,19 @@
+#ContentBag {
+    min-height: 100px;
+    border-radius: 2px;
+    border: 0px solid #DFDEE2;
+    min-width: 196px;
+}
+
+#ContentBag .title {
+    color: #697488;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#ContentBag .body {
+    padding: 20px;
+    min-height: min-content;
+    background-color: #FFFFFF;
+}

@@ -1,0 +1,33 @@
+#Pagination {
+  padding: 16px;
+  display: flex;
+  justify-content: center
+}
+
+#Pagination .ant-pagination{
+  display: flex;
+  justify-content: space-around;
+  min-width: 308px;
+  max-width: 608px;
+}
+
+#Pagination .ant-pagination-item-active {
+  font-weight: 500;
+  background: #1EA4CE;
+  border-color: #fff;
+  border: none;
+  color: #FFFF !important;
+}
+
+#Pagination .ant-pagination-item-active a {
+  color: #FFFF !important;
+}
+
+#Pagination .ant-pagination-prev a, .ant-pagination-next a {
+  color: #1EA4CE;
+  text-decoration: none;
+}
+
+#Pagenation .ant-pagination-prev, .ant-pagination-next, .ant-pagination-item {
+  font-family: "Open Sans", sans-serif !important;
+}

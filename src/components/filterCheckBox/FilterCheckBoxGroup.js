@@ -9,9 +9,11 @@ import { contains } from '../../utils';
  * Searching box helps with filtering checbox list.
  * Inorder to make a chose, user should check one or more checbox
  */
-function FilterCheckBoxGroup({name, options, onChange, ...props }) {
+function FilterCheckBoxGroup({name, options, ...props }) {
   const [searchKey, setSearchKey] = useState(undefined);
-  const [selections, setSelections] = useState(new Set());
+  const [filter, setFilter] = useState(new Set());
+  const [preventOnChange, setPreventOnChange] = useState(false);
+  const [allChecked, setAllChecked] = useState(false);
 
   const onSearching = (val) => {
     const value = val.target.value;
@@ -22,8 +24,30 @@ function FilterCheckBoxGroup({name, options, onChange, ...props }) {
       setSearchKey(value);
   };
 
-  const onAllCheckedChanged = (val) => { console.log("onAllCheckedChanged:", val) };
-  const onCheckedChanged = (val) => { console.log("onCheckedChanged:", val) };
+  const onAllCheckedChanged = (val) => { 
+    const checkAll = val.checked === true;
+    setPreventOnChange(true);
+    setAllChecked(true);
+    const newFilter = filter;
+    newFilter.clear();
+    setFilter(newFilter);
+    // raise onchange event
+    props.onChange && props.onChange([]);
+  };
+
+  const onCheckedChanged = (item) => {
+    if (preventOnChange) return;
+    // if itme is in the set
+    const newFilter = filter;
+    if (item.checked === true)
+        newFilter.add(item.name);
+    else if (filter.has(item.name))
+        newFilter.delete(item.name);
+
+    setFilter(newFilter);
+    // raise onchange event
+    props.onChange && props.onChange(Array.from(newFilter.values()));
+  };
 
   const filteredOptions = searchKey === undefined ? options : options.filter(x=> contains(x.name, searchKey));
   const optionCount = filteredOptions ? filteredOptions.reduce((total, next) => total + (next.quantity || 0), 0) : 0;

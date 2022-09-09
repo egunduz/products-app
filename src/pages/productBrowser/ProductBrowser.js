@@ -43,7 +43,7 @@ function ProductBrowser(props) {
   };
   const onBrandSelectionChanged = (val) => {
     console.log('onBrandSelectionChanged:', val);
-    dispatch(setBrandFilter([]));
+    dispatch(setBrandFilter(val));
     dispatch(fetchNextPage(1, pageSize))
   };
 

@@ -1,3 +1,4 @@
+import { getLastOrDefault, getFirstWord} from "../utils";
 
 const BASE_URI = process.env.REACT_APP_PRODUCT_API_URI ? process.env.REACT_APP_PRODUCT_API_URI : 'http://localhost:3004';
 
@@ -16,9 +17,9 @@ export default class productApi {
         // this query will be improved 09.09.2022
         let url = `${BASE_URI}/items?_page=${filter.page}&_limit=${filter.limit}`;
         if (filter.itemTypes && filter.itemTypes.length > 0)
-            url = `${url}&itemType=${filter.itemTypes[filter.itemTypes.length-1]}`;
+            url = `${url}&itemType=${getLastOrDefault(filter.itemTypes)}`;
         if (filter.manufacturers && filter.manufacturers.length > 0)
-            url = `${url}&manufacturer=${filter.manufacturers[filter.manufacturers.length-1]}`;
+            url = `${url}&manufacturer_like=${getFirstWord(getLastOrDefault(filter.manufacturers))}`;
         if (filter.sorting)
             url = `${url}&_sort=${filter.sorting}`;
 

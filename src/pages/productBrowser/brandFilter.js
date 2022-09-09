@@ -29,5 +29,5 @@ export default function BrandFilter(props) {
 }
 
 BrandFilter.propTypes = {
-    items: PropTypes.array
+  onChange: PropTypes.func
 }

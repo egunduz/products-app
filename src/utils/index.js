@@ -35,7 +35,30 @@ const contains = (text, key) => {
       return false;
 
     return text.toString().search(new RegExp(key, "i")) >= 0;
-  }
+}
 
+/**
+ * retrives first word in the sentence
+ * for query porpuses
+ * @param {*} text 
+ * @returns 
+ */
+const getFirstWord = (text) => {
+    if (text === undefined) return '';
 
-export { CurrentCurency, Notification, contains};
+    const spaceIndex = text.indexOf(' ');
+    return spaceIndex === -1 ? text : text.substring(0, spaceIndex);
+};
+
+/**
+ * returns last element of array
+ * for query porpuses
+ * @param {*} text 
+ * @returns 
+ */
+const getLastOrDefault = (array) => {
+  if (array === undefined || array.length === 0) return undefined;
+  return (array[array.length - 1]).replace(',', '');
+};
+
+export { CurrentCurency, Notification, contains, getFirstWord, getLastOrDefault};

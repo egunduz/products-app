@@ -24,7 +24,7 @@ export default function ProductSlection({ products, ...props }) {
     }
 
     const renderProductList = () => {
-        if (products === undefined || products.length === 0) return <div className='no-product-listed'></div>;
+        if (products === undefined || products.length === 0) return <div className='no-product-listed'><h4>No product to be listed. Please check filter options.</h4></div>;
 
         return <div className='product-list'>{products.map(prod => { return renderProduct(prod) })}</div>
     }

@@ -16,6 +16,22 @@
     justify-content: stretch;
 }
 
+#ProductSlection .no-product-listed {
+    display: flex;
+    justify-content: center;
+    min-width: 568px;
+    min-height: 976px;
+    padding-top: 200px;
+}
+
+@media only screen and (max-width: 1024px) {
+    #ProductSlection .no-product-listed {
+        display: flex;
+        justify-content: center;
+        min-width: 268px;
+    }
+}
+
 #ProductSlection .add-botton {
     height: 22px;
     background: #1EA4CE;

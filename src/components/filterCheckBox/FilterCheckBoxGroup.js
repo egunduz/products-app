@@ -22,7 +22,7 @@ function FilterCheckBoxGroup({name, options, onChange, ...props }) {
       setSearchKey(value);
   };
 
-  const onAllCheckedChanged = (val) => { console.log("onAllCheckedChanged:", val.target.value) };
+  const onAllCheckedChanged = (val) => { console.log("onAllCheckedChanged:", val) };
   const onCheckedChanged = (val) => { console.log("onCheckedChanged:", val) };
 
   const filteredOptions = searchKey === undefined ? options : options.filter(x=> contains(x.name, searchKey));

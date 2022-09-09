@@ -1,0 +1,17 @@
+@import 'antd/dist/antd.css';
+
+
+$path: '../../';
+$i: '!important';
+$active-color: #1EA4CE;
+$strong-color: #147594;
+$active_border_color: #1EA4CE;
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-family: "Open Sans", sans-serif;
+    overflow-y: auto;
+}

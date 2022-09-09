@@ -1,14 +1,7 @@
 import React from 'react'
 import { Radio, Space, } from 'antd';
 import PropTypes from 'prop-types';
-import { SortingCode } from '../../_constants';
-
-const options = [
-    { name: "Price low to heigh", value: SortingCode.LowToHeigh },
-    { name: "Price heigh to low", value: SortingCode.HeighToLow },
-    { name: "New to old", value: SortingCode.NewToOld },
-    { name: "Old to new", value: SortingCode.OldToNew },
-];
+import { SortingCode, SortingOptions } from '../../_constants';
 
 /**
  * This is a radio group component.
@@ -23,7 +16,7 @@ export default function SortingOption(props) {
     return (
         <Radio.Group onChange={onChange} defaultValue={SortingCode.LowToHeigh}>
             <Space direction="vertical">
-                {options.map(opt => { return <Radio value={opt.value}>{opt.name}</Radio> })}
+                {SortingOptions.map(opt => { return <Radio value={opt.value}>{opt.name}</Radio> })}
             </Space>
         </Radio.Group>
     );

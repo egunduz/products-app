@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FilterCheckBoxGroup from '../../components/filterCheckBox/FilterCheckBoxGroup';
-
-const tags = [
-    { name: "Beach", value: "Beach", quantity: 1 },
-    { name: "People", value: "People", quantity: 18 },
-    { name: "Outdoor", value: "Outdoor", quantity: 3 },
-];
+import { TagOptions } from '../../_constants';
 
 /**
  * TagFilter provides tag filter options to the user and rises an onChange event
@@ -19,10 +14,15 @@ export default function TagFilter(props) {
     };
 
     return (
-        <FilterCheckBoxGroup name={"tag"} options={tags} onChange={onChange} />
+        <FilterCheckBoxGroup name={"tag"} options={props.options} onChange={onChange} />
     );
 }
 
 TagFilter.propTypes = {
-    items: PropTypes.array
+    onChange: PropTypes.func,
+    options: PropTypes.array
+}
+
+TagFilter.defaultProps = {
+    options: TagOptions
 }

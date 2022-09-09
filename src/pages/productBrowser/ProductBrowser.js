@@ -12,71 +12,56 @@ import TagFilter from './tagFilter';
 import ProductSlection from '../../components/product/products';
 import TypeFilter from './typeFilter';
 import Pagination from '../../components/pagenation/Pagination';
-import productApi from '../../api/productApi';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItemToBasket, } from '../../components/basket/basketSlice';
-
-const types = [
-  { name: "mug", value: "mug", },
-  { name: "shirt", value: "shirt", },
-];
+import {
+  selectPageSize, selectProducts, selectPageIndex, setPageIndex,
+  selectTotalCount, fetchNextPage, setBrandFilter,
+  setTypesFilter, setSorting
+} from './ProductBrowserSlice';
+import { ItemTypeOptions } from '../../_constants';
 
 /**
  * This is the main page where products are listed
  * @param {*} props no props required for now
  */
 function ProductBrowser(props) {
-  const [fetching, setFetching] = useState(false);
-  const [productList, setProductList] = useState([]);
-  const [totalCount, setTotalCount] = useState(0);
-  const [pageIndex, setPageIndex] = useState(0);
+  const productList = useSelector(selectProducts);
+  const pageSize = useSelector(selectPageSize);
+  const pageIndex = useSelector(selectPageIndex);
+  const totalCount = useSelector(selectTotalCount);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchProducts();
+    dispatch(fetchNextPage(1, pageSize))
   }, [])
-
-  useEffect(() => {
-    fetchProducts();
-  }, [pageIndex])
-  
-  const fetchProducts = ()=> {
-    setFetching(true);
-    const filter = { page: pageIndex, limit: 16}
-    productApi.getProducts(filter).then(res =>{
-      const total = res.headers.get('X-Total-Count');
-      setTotalCount(new Number(total));
-      setFetching(false);
-      res.json().then(data=>{
-        setProductList(data);
-      })
-    }, (err)=>{ 
-      setFetching(false);
-    })
-  }
 
   const onSortingChanged = (val) => {
     console.log('onSortingOptionChange:', val);
-
+    dispatch(setSorting(val));
+    dispatch(fetchNextPage(1, pageSize))
   };
   const onBrandSelectionChanged = (val) => {
     console.log('onBrandSelectionChanged:', val);
-
+    dispatch(setBrandFilter([]));
+    dispatch(fetchNextPage(1, pageSize))
   };
 
   const onTagFilterChanged = (val) => {
     console.log('onTagFilterChanged:', val);
-
+    dispatch(fetchNextPage(1, pageSize))
   };
 
   const onItemTypeFilterChanged = (val) => {
     console.log('onItemTypeFilterChanged:', val);
-
+    dispatch(setTypesFilter(val));
+    dispatch(fetchNextPage(1, pageSize))
   };
 
   const onPaginationChange = (page, pageSize) => {
     console.log('page:', page, " pageSize:", pageSize);
-    setPageIndex(page);
+    dispatch(setPageIndex(page));
+    dispatch(fetchNextPage(page, pageSize))
   };
 
   const addToBasket = (item) => {
@@ -102,11 +87,11 @@ function ProductBrowser(props) {
         <Col className='content-col' id='prod-col'>
           <>
             <h4 className="title">{"Products"}</h4>
-            <TypeFilter types={types} onChange={onItemTypeFilterChanged} />
+            <TypeFilter types={ItemTypeOptions} onChange={onItemTypeFilterChanged} />
             <ContentBag>
               <ProductSlection products={productList} onAdd={addToBasket} />
             </ContentBag>
-            <Pagination total={totalCount} onChange={onPaginationChange}/>
+            <Pagination total={totalCount} pageSize={pageSize} pageIndex={pageIndex} onChange={onPaginationChange} />
           </>
         </Col>
         <Col className='content-col' id='basket-col'>

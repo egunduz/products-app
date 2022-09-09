@@ -1,5 +1,5 @@
 
-const BASE_URI = process.env.PRODUCT_API_URI ? process.env.PRODUCT_API_URI : 'http://localhost:3004';
+const BASE_URI = process.env.REACT_APP_PRODUCT_API_URI ? process.env.REACT_APP_PRODUCT_API_URI : 'http://localhost:3000';
 
 /**
  * this api consumes data from json server

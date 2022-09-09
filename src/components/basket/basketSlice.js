@@ -2,7 +2,7 @@ import { createSlice, createSelector, } from '@reduxjs/toolkit';
 
 
 const initialState = {
-  items: [{ id: 1222, name: "afdssdfds", price: 100, quantity: 3 }], // shopping items
+  items: [], // shopping items
   status: 'idle',
 };
 

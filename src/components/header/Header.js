@@ -19,7 +19,7 @@ export default function Header() {
       </div>
       <div className='right-menu'>
         <div className='user-basket'>
-          <img src={basket} />
+          <img src={basket} alt="basket-icon"/>
           <span>&#8378;{totalPrice.toFixed(2)}</span>
         </div>
       </div>
